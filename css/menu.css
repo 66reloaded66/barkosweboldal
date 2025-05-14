@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     border: 2px rgb(56, 54, 54) solid;
+    z-index: 1000;
 }
 
 #menu a {
