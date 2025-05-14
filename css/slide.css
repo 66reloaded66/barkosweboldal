@@ -1,0 +1,29 @@
+.slideshow {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150vh; /* Larger than screen */
+    width: 150vw;  /* Larger than screen */
+    object-fit: cover;
+    opacity: 0;
+    animation: pan 10s ease-in-out infinite;
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: -1;
+}
+
+@keyframes pan {
+    0%   { transform: translate(0%, 0%); }
+    100% { transform: translate(-10%, -10%); }
+}
