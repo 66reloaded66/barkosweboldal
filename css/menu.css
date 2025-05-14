@@ -1,0 +1,67 @@
+#menu {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 100%;
+    min-height: 3.5rem;
+    background-color: rgb(65, 0, 0);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px rgb(56, 54, 54) solid;
+}
+
+#menu a {
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: rgb(65, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    font-weight: 600;
+    font-family:"Roboto", sans-serif;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+
+#menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: rgb(255, 248, 211);
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+#menu a:hover::after {
+    width: 100%;
+    opacity: 1;
+}
+
+#menu > div {
+    padding: 1%;
+}
+
+@media screen and (max-width:600px) {
+    #menu {
+        display: block;
+        align-items: center;
+    }
+    #menu > div {
+        padding: 1%;
+        width: 100%;
+    }
+    #menu a {
+        width: 100%;
+    }
+}
+
+#choosen > a {
+    color: rgb(170, 169, 169);
+}

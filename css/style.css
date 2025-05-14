@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(65, 0, 0);
+}
+
+p {
+    color: black;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+
+.slideshow {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150vh; /* Larger than screen */
+    width: 150vw;  /* Larger than screen */
+    object-fit: cover;
+    opacity: 0;
+    animation: pan 10s ease-in-out infinite;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+@keyframes pan {
+    0%   { transform: translate(0%, 0%); }
+    100% { transform: translate(-10%, -10%); }
+}
