@@ -1,8 +1,8 @@
 #menu {
-    position: absolute;
+    position: relative;
     top: 0%;
     right: 0%;
-    width: 100%;
+    width: 99.74%;
     min-height: 3.5rem;
     background-color: rgb(65, 0, 0);
     display:flex;
@@ -23,7 +23,7 @@
     position: relative;
     font-weight: 600;
     font-family:"Roboto", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.7rem;
     text-decoration: none;
 }
 
@@ -49,14 +49,30 @@
     padding: 1%;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:1200px) {
     #menu {
-        display: block;
+        width: 100%;
+        display: inline;
         align-items: center;
     }
     #menu > div {
-        padding: 1%;
+        padding:0.1%;
+        width: 48.5%;
+        display: inline-flex;
+    }
+    #menu a {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    #menu {
+        display: inline;
+        align-items: center;
+    }
+    #menu > div {
         width: 100%;
+        display: inline-flex;
     }
     #menu a {
         width: 100%;
