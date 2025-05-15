@@ -6,6 +6,11 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgb(65, 0, 0);
+    background-image: url(/images/paint-2174689_1920.png);
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;   
 }
 
 p {

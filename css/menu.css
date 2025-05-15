@@ -1,20 +1,29 @@
 #menu {
-    position: relative;
+    position: fixed;
     top: 0%;
     right: 0%;
-    width: 99.74%;
-    min-height: 3.5rem;
+    width: 100%;
+    min-height: 4rem;
     background-color: rgb(65, 0, 0);
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px rgb(56, 54, 54) solid;
+    border-bottom: 2px  azure solid;
+    flex-wrap: wrap;
     z-index: 1000;
+
+}
+
+#menu>div {
+    padding: 0.5%;
+    align-self: center;
+    flex: 1 1 200px;
+    display: flex;
+    justify-content: center;
+    min-width: fit-content;
 }
 
 #menu a {
-    width: 100%;
-    text-align: center;
     color: white;
     background-color: rgb(65, 0, 0);
     border: none;
@@ -22,12 +31,12 @@
     cursor: pointer;
     position: relative;
     font-weight: 600;
-    font-family:"Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 1.7rem;
     text-decoration: none;
 }
 
-
+/*hover effect*/
 #menu a::after {
     content: "";
     position: absolute;
@@ -44,41 +53,26 @@
     width: 100%;
     opacity: 1;
 }
+/*hover effect*/
 
-#menu > div {
-    padding: 1%;
-}
-
-@media screen and (max-width:1200px) {
+@media screen and (max-width: 768px) {
     #menu {
-        width: 100%;
-        display: inline;
-        align-items: center;
+        flex-direction: column !important;
+        align-items: stretch !important;
     }
-    #menu > div {
-        padding:0.1%;
-        width: 48.5%;
-        display: inline-flex;
+
+    #menu>div {
+        max-width: 100% !important;
+        height: fit-content !important;
+        max-height: 4rem !important;
     }
+
     #menu a {
-        width: 95%;
+        font-size: 1.5rem !important;
+        padding: 12px !important;
     }
 }
 
-@media screen and (max-width:1000px) {
-    #menu {
-        display: inline;
-        align-items: center;
-    }
-    #menu > div {
-        width: 100%;
-        display: inline-flex;
-    }
-    #menu a {
-        width: 100%;
-    }
-}
-
-#choosen > a {
+#choosen>a {
     color: rgb(170, 169, 169);
 }

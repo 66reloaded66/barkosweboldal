@@ -9,21 +9,21 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 150vh; /* Larger than screen */
-    width: 150vw;  /* Larger than screen */
+    height: 150vh;
+    width: 150vw;
     object-fit: cover;
     opacity: 0;
-    animation: pan 10s ease-in-out infinite;
+    animation: pan 10s ease infinite alternate;
     transition: opacity 1s ease-in-out;
     z-index: -1;
 }
 
 .slide.active {
     opacity: 1;
-    z-index: -1;
+    z-index: 0;
 }
 
 @keyframes pan {
-    0%   { transform: translate(0%, 0%); }
-    100% { transform: translate(-10%, -10%); }
+    0%   { transform: scale(1.1) translate(0%, 0%); }
+    100% { transform: scale(1.1) translate(-15%, -15%); }
 }
