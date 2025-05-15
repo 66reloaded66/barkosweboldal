@@ -13,7 +13,7 @@
     width: 150vw;
     object-fit: cover;
     opacity: 0;
-    animation: pan 10s ease infinite alternate;
+    animation: pan 10s ease-in-out infinite alternate;
     transition: opacity 1s ease-in-out;
     z-index: -1;
 }
@@ -25,5 +25,5 @@
 
 @keyframes pan {
     0%   { transform: scale(1.1) translate(0%, 0%); }
-    100% { transform: scale(1.1) translate(-15%, -15%); }
+    100% { transform: scale(1.1) translate(-30%, -30%); }
 }
