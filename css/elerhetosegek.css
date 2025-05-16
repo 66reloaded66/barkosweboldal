@@ -2,14 +2,14 @@
     position: fixed;
     bottom: 2%;
     right: 1.5%;
-    background-color: rgba(0, 0 , 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     width: fit-content;
     height: fit-content;
     border-radius: 0.3rem;
     z-index: 2;
 }
 
-#contacts > a {
+#contacts>a {
     text-decoration: none;
     text-align: center;
     font-size: 1.5rem;

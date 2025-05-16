@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 2px  azure solid;
+    border-bottom: 2px azure solid;
     flex-wrap: wrap;
     z-index: 1000;
 
@@ -34,6 +34,13 @@
     font-family: "Roboto", sans-serif;
     font-size: 1.7rem;
     text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#menu a:hover {
+    /* Add this */
+    transform: scale(1.1);
 }
 
 /*hover effect*/
@@ -46,30 +53,32 @@
     width: 0%;
     background-color: rgb(255, 248, 211);
     opacity: 0;
-    transition: 0.4s ease;
+    font-size: 3rem;
+    transition: width 0.4s ease, opacity 0.4s ease;
 }
 
 #menu a:hover::after {
     width: 100%;
     opacity: 1;
 }
+
 /*hover effect*/
 
 @media screen and (max-width: 768px) {
     #menu {
-        flex-direction: column !important;
-        align-items: stretch !important;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     #menu>div {
-        max-width: 100% !important;
-        height: fit-content !important;
-        max-height: 4rem !important;
+        max-width: 100%;
+        height: fit-content;
+        max-height: 4rem;
     }
 
     #menu a {
-        font-size: 1.5rem !important;
-        padding: 12px !important;
+        font-size: 1.5rem;
+        padding: 12px;
     }
 }
 

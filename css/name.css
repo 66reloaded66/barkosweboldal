@@ -10,7 +10,13 @@
     width: fit-content;
 }
 
-#name > h1 {
+#name>h1,
+h2:hover {
+    cursor: default;
+    user-select: none;
+}
+
+#name>h1 {
     white-space: nowrap;
     margin: 1%;
     color: white;
@@ -18,15 +24,10 @@
     font-size: 8rem;
     line-height: 12rem;
     font-weight: bold;
-    text-shadow:
-    -0.2rem -0.2rem 0 black,
-     0.2rem -0.2rem 0 black,
-    -0.2rem  0.2rem 0 black,
-     0.2rem  0.2rem 0 black;
     -webkit-text-stroke: 0.4rem black;
 }
 
-#name > h2 {
+#name>h2 {
     margin: 1%;
     color: white;
     font-family: "Robotto", sans-serif;
@@ -34,60 +35,37 @@
     line-height: 5rem;
     font-weight: 500;
     font-style: italic;
-    text-shadow:
-    -0.2rem -0.2rem 0 black,
-     0.2rem -0.2rem 0 black,
-    -0.2rem  0.2rem 0 black,
-     0.2rem  0.2rem 0 black;
     -webkit-text-stroke: 0.25rem black;
-    
+
 }
 
 
 @media screen and (max-width: 1000px) {
-    #name >h1 {
+    #name>h1 {
         font-size: 6rem;
         line-height: 9rem;
-        text-shadow:
-    -0.15rem -0.15rem 0 black,
-     0.15rem -0.15rem 0 black,
-    -0.15rem  0.15rem 0 black,
-     0.15rem  0.15rem 0 black;
-    -webkit-text-stroke: 0.35rem black;
+        -webkit-text-stroke: 0.35rem black;
     }
-    #name >h2 {
+
+    #name>h2 {
         font-size: 3.5rem;
         font-style: italic;
         line-height: 3rem;
-        text-shadow:
-    -0.1rem -0.1rem 0 black,
-     0.1rem -0.1rem 0 black,
-    -0.1rem  0.1rem 0 black,
-     0.1rem  0.1rem 0 black;
-    -webkit-text-stroke: 0.15rem black;
+        -webkit-text-stroke: 0.15rem black;
     }
 }
 
 @media screen and (max-width: 768px) {
-    #name >h1 {
+    #name>h1 {
         font-size: 5rem;
         line-height: 6rem;
-        text-shadow:
-    -0.1rem -0.1rem 0 black,
-     0.1rem -0.1rem 0 black,
-    -0.1rem  0.1rem 0 black,
-     0.1rem  0.1rem 0 black;
-    -webkit-text-stroke: 0.3rem black;
+        -webkit-text-stroke: 0.3rem black;
     }
-    #name >h2 {
+
+    #name>h2 {
         font-size: 2.5rem;
         font-style: italic;
         line-height: 2rem;
-        text-shadow:
-    -0.07rem -0.07rem 0 black,
-     0.07rem -0.07rem 0 black,
-    -0.07rem  0.07rem 0 black,
-     0.07rem  0.07rem 0 black;
-    -webkit-text-stroke: 0.1rem black;
+        -webkit-text-stroke: 0.1rem black;
     }
 }
