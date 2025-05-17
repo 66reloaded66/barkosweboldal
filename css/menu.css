@@ -90,7 +90,7 @@
     transform: scale(1.1);
 }
 
-#choosen>a::after{
+#choosen>a::after {
     width: 100%;
     opacity: 1;
 

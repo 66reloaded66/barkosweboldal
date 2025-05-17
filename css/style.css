@@ -21,12 +21,15 @@ body {
     background-position: center;
     background-attachment: fixed;
 
-    opacity: 0; /* Új: induljon átlátszón */
-    transition: opacity 0.8s ease; /* Új: animáció beállítása */
+    opacity: 0;
+    /* Új: induljon átlátszón */
+    transition: opacity 0.8s ease;
+    /* Új: animáció beállítása */
 }
 
 body.fade-in {
-    opacity: 1; /* Új: amikor betölt, beúszik */
+    opacity: 1;
+    /* Új: amikor betölt, beúszik */
 }
 
 body.fade-out {
