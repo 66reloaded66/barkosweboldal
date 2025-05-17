@@ -115,7 +115,7 @@ body {
 
   .gallery-item:hover .gallery-img {
     filter: brightness(40%) blur(2px);
-    opacity: 0.7;
+    opacity: 0;
     transition: filter 0.3s ease, opacity 0.3s ease;
   }
 
