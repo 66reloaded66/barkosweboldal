@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     border-bottom: 2px azure solid;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     z-index: 1000;
     overflow-x: auto;
 }
@@ -85,4 +85,11 @@
 
 #choosen>a {
     color: rgb(170, 169, 169);
+    transform: scale(1.1);
+}
+
+#choosen>a::after{
+    width: 100%;
+    opacity: 1;
+
 }
