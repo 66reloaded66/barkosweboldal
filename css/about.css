@@ -1,5 +1,6 @@
 #about {
-    margin: 2%;
+    margin: auto;
+    background-color: white;
     margin-top: 5%;
     background-color: rgba(0, 0, 0, 0.3);
     align-self: center;
@@ -7,7 +8,7 @@
     border-radius: 1rem;
     border-top: azure solid 1px;
     border-right: azure solid 1px;
-
+    text-align: justify;
 }
 
 #about h1 {
@@ -24,9 +25,10 @@
     color: white;
     font-family: "Robotto", sans-serif;
     font-size: 1.15rem;
-    line-height: 1.7rem;
     font-weight: 500;
+    line-height: 1.7rem;
 }
+
 
 #about p>span {
 
@@ -42,4 +44,13 @@
     float: right;
     margin: 3%;
     border-radius: 2%;
+}
+
+#about ul{
+    margin: 1%;
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.7rem;
 }
