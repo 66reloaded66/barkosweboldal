@@ -1,0 +1,67 @@
+/* public/style.css */
+
+/* Alap beállítás: oldal közepére igazítás */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Konténer a bejelentkezéshez */
+.login-container {
+  background-color: #2c2c2c;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Űrlap stílus */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cím */
+.login-form h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Label */
+.login-form label {
+  margin: 0.5rem 0 0.2rem;
+}
+
+/* Beviteli mezők */
+.login-form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Gomb */
+.login-form button {
+  padding: 0.7rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #008080;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #00aaaa;
+}
