@@ -4,6 +4,7 @@
   gap: 90px;
   transform: translateY(35%);
   flex-wrap: wrap;
+  user-select: none;
 }
 
 .gallery {

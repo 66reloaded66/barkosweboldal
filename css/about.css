@@ -30,8 +30,8 @@
 }
 
 
-#about p>span {
-
+#about span {
+    margin-left: 1.6rem;
     color: white;
     font-family: "Robotto", sans-serif;
     font-size: 1.3rem;
