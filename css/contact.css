@@ -1,0 +1,33 @@
+#main {
+    margin: auto;
+    margin-left: 4%;
+    background-color: white;
+    margin-top: 15vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-self: center;
+    justify-self: start;
+    width: 70%;
+    min-height: 200px;
+    height: fit-content;
+    border: 2px rgb(0, 0, 0);
+    border-radius: 0.5rem;
+    border-top: azure solid 1px;
+    border-right: azure solid 1px;
+}
+
+#main h2 {
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 2.7rem;
+    line-height: 4rem;
+    font-weight: bold;
+}
+
+#main p {
+    margin: 1%;
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
