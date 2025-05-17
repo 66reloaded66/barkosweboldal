@@ -32,3 +32,7 @@ function openVallasi() {
 function openEkszerek() {
   window.location.href = '../html/kepnezegetok/ekszerek.html';
 }
+
+function visszaGomb(){
+  window.history.back();
+}
