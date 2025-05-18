@@ -85,7 +85,7 @@
     }
 }
 
-#choosen>a {
+#choosen > a {
     color: rgb(170, 169, 169);
     transform: scale(1.1);
 }
@@ -93,7 +93,6 @@
 #choosen>a::after {
     width: 100%;
     opacity: 1;
-
 }
 
 #menu::-webkit-scrollbar {
