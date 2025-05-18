@@ -52,6 +52,12 @@ main {
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.6);
 }
 
+button:active,
+.type-button:active {
+  transform: translateY(2px);
+  transition: transform 0.1s ease;
+}
+
 /* Lebegő panel jobb alsó sarokban, beúszó animáció */
 #floating-panel {
   position: fixed;
@@ -154,4 +160,202 @@ main {
     padding: 6px 12px;
     font-size: 0.9rem;
   }
+}
+
+.drop-zone {
+  border: 3px dashed #888;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  color: #444;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.drop-zone:hover,
+.drop-zone.dragover {
+  background-color: #333;
+  color: #aaddff;
+  border-color: #88ccff;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.browse-label {
+  color: #55aaff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#uploadList {
+  margin-top: 20px;
+}
+
+.upload-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.upload-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
+
+.upload-details {
+  flex-grow: 1;
+}
+
+.upload-progress {
+  width: 100%;
+  background: #444;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 12px;
+  margin: 8px 0;
+}
+
+.upload-progress > div {
+  height: 100%;
+  background-color: #55aaff;
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 8px;
+}
+
+/* Form elemek a kép mellett */
+.input-group {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input[type="text"],
+.input-group textarea {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background-color: #111;
+  color: #eee;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.input-group textarea {
+  height: 60px;
+}
+
+.visibility-checkbox {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  gap: 5px;
+}
+
+/* Típus választó gombok */
+.type-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.type-button {
+  padding: 6px 15px;
+  border-radius: 20px;
+  border: 1px solid #555;
+  background-color: #111;
+  color: #eee;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.type-button.selected {
+  background-color: #55aaff;
+  color: #111;
+  border-color: #55aaff;
+}
+
+/* Mentés gomb */
+#saveBtn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #111;
+  background-color: #55aaff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#saveBtn:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+#saveBtn:hover:not(:disabled) {
+  background-color: #3399ff;
+}
+
+/* Üzenet megjelenítés */
+.message {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #2a7a2a; /* sötétzöld szöveg */
+  text-align: center;
+  padding: 12px 20px;
+  background-color: #d0f0d0; /* világos zöld háttér */
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(42, 122, 42, 0.4);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.message.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #1f2937;
+  color: #cbd5e1;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.6);
+  transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  background-color: #374151;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgb(100 116 139 / 0.9);
+}
+
+.back-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.5);
 }
