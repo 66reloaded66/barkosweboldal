@@ -6,13 +6,12 @@ const app = express();
 const PORT = 3000;
 
 // 🔐 Képzelt felhasználó (adatbázis helyett)
-const users = [
-  {
-    username: "tejfoloskenyer",
-    passwordHash: "$2b$10$GpHLih3jF19GvR6EpSYWTugjGH6ArXFxhIQYNRe/1BmcE9eMI3ABK" // Jelszó: titok123
-  }
-];
+const fs = require("fs");
 
+const users = JSON.parse(fs.readFileSync("users.json", "utf-8")).map(user => ({
+  username: user.username,
+  passwordHash: user.password
+}));
 // 🌐 Middleware beállítások
 app.use(express.urlencoded({ extended: true })); // POST adatok olvasása
 app.use(express.static(path.join(__dirname, "public"))); // statikus fájlok kiszolgálása
@@ -23,13 +22,16 @@ app.use(
     secret: "nagyontitkoskulcs", // Titkos kulcs
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false } // HTTPS esetén legyen true
+    cookie: {
+  secure: false, // HTTPS esetén true legyen
+  maxAge: 30 * 60 * 1000 // 30 perc ezredmásodpercben
+}
   })
 );
 
 // 🟢 GET / - login oldal
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "admin.html"));
 });
 
 // 🔐 POST /login - bejelentkezés kezelése
@@ -43,7 +45,7 @@ app.post("/login", async (req, res) => {
 
   if (match) {
     req.session.user = username;
-    res.redirect("/dashboard");
+    res.sendFile(path.join(__dirname, "public", "admin.html"));
   } else {
     res.send("Hibás felhasználónév vagy jelszó");
   }
@@ -60,12 +62,16 @@ function authMiddleware(req, res, next) {
 
 // 📋 GET /dashboard - csak belépve elérhető
 app.get("/dashboard", authMiddleware, (req, res) => {
-  res.send(`<h1>Üdv, ${req.session.user}!</h1><p><a href="/logout">Kijelentkezés</a></p>`);
+  res.sendFile(path.join(__dirname, "public", "admin.html"));
 });
 
 // 🚪 GET /logout - kijelentkezés
 app.get("/logout", (req, res) => {
-  req.session.destroy(() => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.send("Hiba történt kijelentkezéskor");
+    }
+    res.clearCookie("connect.sid");
     res.redirect("/");
   });
 });
