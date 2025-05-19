@@ -59,7 +59,7 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
   res.json({ success: true, post: newPost });
 });
 
-// ✅ Képek lekérdezése kategória szerint
+// ✅ Képek lekérdezése kategória szerint (csak látható képek)
 app.get('/api/posts/:category', (req, res) => {
   const { category } = req.params;
   const posts = readPosts();
@@ -79,6 +79,61 @@ app.post('/api/toggle/:id', (req, res) => {
   res.json({ success: true, visible: posts[index].visible });
 });
 
+// ✅ Admin: összes kép lekérése (láthatóságtól függetlenül)
+app.get('/api/admin/posts', (req, res) => {
+  const posts = readPosts();
+  res.json(posts);
+});
+
+// ✅ Kép adatainak frissítése
+app.put('/api/posts/:id', (req, res) => {
+  const { id } = req.params;
+  const { category, description, visible } = req.body;
+  const posts = readPosts();
+  const index = posts.findIndex(p => p.id === id);
+  if (index === -1) return res.status(404).json({ error: 'Post not found' });
+
+  posts[index] = {
+    ...posts[index],
+    category: category || posts[index].category,
+    description: description || posts[index].description,
+    visible: typeof visible === 'boolean' ? visible : posts[index].visible
+  };
+
+  savePosts(posts);
+  res.json({ success: true, post: posts[index] });
+});
+
+// ✅ Kép törlése
+app.delete('/api/posts/:id', (req, res) => {
+  const { id } = req.params;
+  let posts = readPosts();
+  const index = posts.findIndex(p => p.id === id);
+  if (index === -1) return res.status(404).json({ error: 'Post not found' });
+
+  const [deletedPost] = posts.splice(index, 1);
+  savePosts(posts);
+
+  // Töröljük a képfájlt is
+  const filePath = path.join(__dirname, 'uploads', deletedPost.filename);
+  fs.unlink(filePath, err => {
+    if (err) console.error('Hiba a fájl törlésekor:', err);
+  });
+
+  res.json({ success: true });
+});
+
+// ✅ Nyilvános nézegető oldalnak: látható képek lekérése kategória szerint
+app.get('/api/gallery/:category', (req, res) => {
+  const { category } = req.params;
+  const posts = readPosts();
+  const filtered = posts.filter(
+    (p) => p.category === category && p.visible === true
+  );
+  res.json(filtered);
+});
+
 app.listen(PORT, () => {
   console.log(`Admin szerver fut a http://localhost:${PORT}/ címen`);
 });
+
