@@ -119,3 +119,24 @@
     3px 3px 8px rgba(0, 0, 0, 0.8),
     3px 6px 8px rgba(0, 0, 0, 0.7);
 }
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .gallery-img-item {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-img-item:hover {
+    transform: scale(1.05);
+  }

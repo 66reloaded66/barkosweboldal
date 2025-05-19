@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Galéria</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/gallery.css">
+</head>
+<body>
+  <div id="gallery"></div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+
+    fetch(`http://localhost:3000/api/posts/${category}`)
+      .then(res => res.json())
+      .then(images => {
+        const gallery = document.getElementById('gallery');
+        images.forEach(img => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <img src="/uploads/${img.filename}" alt="${img.description}" style="width: 200px">
+            <p>${img.description}</p>
+          `;
+          gallery.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
