@@ -1,32 +1,51 @@
-#menu {
-    margin-top: auto;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #menu {
     position: fixed;
-    top: 0%;
-    right: 0%;
-    width: 100%;
-    min-height: 4rem;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4rem;
     background-color: rgb(65, 0, 0);
     display: flex;
-    justify-content: center;
     align-items: center;
     border-bottom: 2px azure solid;
-    flex-wrap: nowrap;
     z-index: 1000;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    user-select: none;
+    overflow: hidden; 
 }
 
-#menu>div {
-    padding: 0.5%;
-    align-self: center;
-    flex: 1 1 200px;
+#menu-inner {
     display: flex;
-    justify-content: center;
-    min-width: fit-content;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+    scrollbar-width: thin;
+    justify-content: space-between
 }
 
-#menu a {
+#menu-inner > div {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-inner a {
     color: white;
     background-color: rgb(65, 0, 0);
     border: none;
@@ -41,13 +60,13 @@
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-#menu a:hover {
+#menu-inner a:hover {
     /* Add this */
     transform: scale(1.1);
 }
 
 /*hover effect*/
-#menu a::after {
+#menuá-inner a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -60,7 +79,7 @@
     transition: width 0.4s ease, opacity 0.4s ease;
 }
 
-#menu a:hover::after {
+#menu-inner a:hover::after {
     width: 100%;
     opacity: 1;
 }
@@ -89,3 +108,15 @@
 #menu::-webkit-scrollbar-track {
     background: transparent;
 }
+
+@media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav a {
+      display: block;
+      margin: 10px 0;
+    }
+  }
