@@ -67,24 +67,6 @@
 
 /*hover effect*/
 
-@media screen and (max-width: 768px) {
-    #menu {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    #menu>div {
-        max-width: 100%;
-        height: fit-content;
-        max-height: 4rem;
-    }
-
-    #menu a {
-        font-size: 1.5rem;
-        padding: 12px;
-    }
-}
-
 #choosen > a {
     color: rgb(170, 169, 169);
     transform: scale(1.1);
