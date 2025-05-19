@@ -5,10 +5,12 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
   const password = document.getElementById('password').value;
 
   try {
-    const response = await fetch('/login', {
+    const response = await fetch('http://localhost:3000/login', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
     });
 
     if (response.ok) {
@@ -18,14 +20,12 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
       showError(data.message || 'Hibás bejelentkezés');
     }
   } catch (error) {
-    console.error('Fetch error:', error);
     showError('Hálózati hiba történt');
   }
 });
 
 function showError(msg) {
   const errorDiv = document.getElementById('error-message');
-  if (!errorDiv) return;
   errorDiv.textContent = msg;
   errorDiv.style.display = 'block';
 }
