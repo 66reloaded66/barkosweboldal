@@ -4,6 +4,7 @@ const path = require('path');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const bcrypt = require('bcrypt'); // bcrypt importálása
 
 const app = express();
 const PORT = 3000;
@@ -13,6 +14,9 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(bodyParser.json());
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Multer beállítások – képek mentése
 const storage = multer.diskStorage({
@@ -39,6 +43,38 @@ function readPosts() {
 function savePosts(posts) {
   fs.writeFileSync(POSTS_JSON, JSON.stringify(posts, null, 2));
 }
+
+const USERS_JSON = path.join(__dirname, 'users.json');
+
+function readUsers() {
+  if (!fs.existsSync(USERS_JSON)) return [];
+  return JSON.parse(fs.readFileSync(USERS_JSON));
+}
+
+// Bejelentkezés kezelése bcrypt-tel
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  const users = readUsers();
+
+  const user = users.find(u => u.username === username);
+  if (!user) {
+    return res.status(401).json({ success: false, message: 'Hibás felhasználónév vagy jelszó' });
+  }
+
+  // bcrypt összehasonlítás, mert user.password hash
+  bcrypt.compare(password, user.password, (err, result) => {
+    if (err) {
+      return res.status(500).json({ success: false, message: 'Szerverhiba történt' });
+    }
+    if (!result) {
+      return res.status(401).json({ success: false, message: 'Hibás felhasználónév vagy jelszó' });
+    }
+    // Sikeres bejelentkezés
+    res.json({ success: true });
+  });
+});
+
+// --- A többi végpont változatlan ---
 
 // ✅ Kép feltöltése és metaadatok mentése
 app.post('/api/upload', upload.single('image'), (req, res) => {
@@ -136,4 +172,3 @@ app.get('/api/gallery/:category', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Admin szerver fut a http://localhost:${PORT}/ címen`);
 });
-

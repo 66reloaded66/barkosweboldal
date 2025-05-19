@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Barkos Beáta admin oldal</title>
+</head>
+<body>
+    <div class="login-container">
+    <form action="/login" method="POST" class="login-form">
+      <h2>Barkos Beáta admin bejelentkezési felület</h2>
+
+      <label for="username">Felhasználónév</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Jelszó</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Belépés</button>
+    </form>
+  </div>
+    <script src="login.js"></script>
+</body>
+</html>
