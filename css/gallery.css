@@ -18,7 +18,7 @@ tr td:first-child {
 }
 
 table tr:last-child td{
-    border:none;
+    border-bottom:none;
 }
 
 td > a > img {
