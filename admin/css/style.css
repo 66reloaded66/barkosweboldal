@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+p {
+    color: black;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(65, 0, 0);
+    background-image: url(../images/paint-2174689_1920.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    opacity: 0;
+    /* Új: induljon átlátszón */
+    transition: opacity 0.8s ease;
+    /* Új: animáció beállítása */
+}
+
+body.fade-in {
+    opacity: 1;
+    /* Új: amikor betölt, beúszik */
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}

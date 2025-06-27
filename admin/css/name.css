@@ -1,0 +1,71 @@
+#name {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-30%);
+    z-index: 10;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    width: fit-content;
+}
+
+#name>h1,
+h2:hover {
+    cursor: default;
+    user-select: none;
+}
+
+#name>h1 {
+    white-space: nowrap;
+    margin: 1%;
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 8rem;
+    line-height: 12rem;
+    font-weight: bold;
+    -webkit-text-stroke: 0.4rem black;
+}
+
+#name>h2 {
+    margin: 1%;
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: 500;
+    font-style: italic;
+    -webkit-text-stroke: 0.25rem black;
+
+}
+
+
+@media screen and (max-width: 1000px) {
+    #name>h1 {
+        font-size: 6rem;
+        line-height: 9rem;
+        -webkit-text-stroke: 0.35rem black;
+    }
+
+    #name>h2 {
+        font-size: 3.5rem;
+        font-style: italic;
+        line-height: 3rem;
+        -webkit-text-stroke: 0.15rem black;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #name>h1 {
+        font-size: 5rem;
+        line-height: 6rem;
+        -webkit-text-stroke: 0.3rem black;
+    }
+
+    #name>h2 {
+        font-size: 2.5rem;
+        font-style: italic;
+        line-height: 2rem;
+        -webkit-text-stroke: 0.1rem black;
+    }
+}

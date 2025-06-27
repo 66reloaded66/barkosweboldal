@@ -1,0 +1,56 @@
+#about {
+    margin: auto;
+    background-color: white;
+    margin-top: 5%;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-self: center;
+    justify-self: center;
+    border-radius: 1rem;
+    border-top: azure solid 1px;
+    border-right: azure solid 1px;
+    text-align: justify;
+}
+
+#about h1 {
+    margin: 1%;
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 2.8rem;
+    line-height: 5rem;
+    font-weight: bold;
+}
+
+#about p {
+    margin: 1%;
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.7rem;
+}
+
+
+#about span {
+    margin-left: 1.6rem;
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.7rem;
+    font-weight: 600;
+}
+
+#about>img {
+    width: 30%;
+    float: right;
+    margin: 3%;
+    border-radius: 2%;
+}
+
+#about ul {
+    margin: 1%;
+    color: white;
+    font-family: "Robotto", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.7rem;
+}

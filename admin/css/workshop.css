@@ -1,0 +1,78 @@
+.holder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 8px;
+    gap: 8px;
+    width: 80%;
+    justify-self: center;
+    margin-top: 100px;
+}
+
+.holder-item {
+    border-radius: 8px;
+    overflow: hidden;
+    grid-row-end: span var(--row-span);
+}
+
+.holder-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    max-height: 550px;
+}
+
+.holder-item:hover {
+    transform: scale(1.06);
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.w300 {
+    max-width: 300px;
+}
+
+.w400 {
+    max-width: 400px;
+}
+
+.w500 {
+    max-width: 500px;
+}
+
+.w600 {
+    max-width: 600px;
+}
+
+/* Lightbox háttér */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+/* Amikor aktív a lightbox */
+.lightbox-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Lightbox képe */
+.lightbox-overlay img {
+    max-width: 70vw;
+    max-height: 70vh;
+    border-radius: 8px;
+    box-shadow: 0 0 20px black;
+    object-fit: contain;
+}
